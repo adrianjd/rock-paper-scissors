@@ -17,4 +17,8 @@ function playRound(playerSelection, computerSelection) {
     if (text != "rock" && text != "paper" && text != "scissors") {
         return "Invalid input! Please enter 'rock', 'paper', or 'scissors'."
     }
+
+    if (text === computerSelection) {
+        return `It's a tie! You and Computer both chose ${text}`
+    }
 }
