@@ -34,3 +34,5 @@ function playRound(playerSelection, computerSelection) {
         return `You Win! Computer chose ${computerSelection}, and ${text} beats ${computerSelection}!`
     }
 }
+
+function playGame () {}
