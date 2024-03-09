@@ -12,3 +12,9 @@ function getComputerChoice() {
     }
 }
 
+function playRound(playerSelection, computerSelection) {
+    let text = playerSelection.toLowerCase()
+    if (text != "rock" && text != "paper" && text != "scissors") {
+        return "Invalid input! Please enter 'rock', 'paper', or 'scissors'."
+    }
+}
