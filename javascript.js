@@ -35,4 +35,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function playGame () {}
+function playGame() {
+    let answer = prompt("Let's play! Enter 'rock', 'paper', or 'scissors'!")
+    for (let i = 0; i < 5; i++) {
+        console.log(`Round ${i+1}:`, playRound(answer, getComputerChoice()));
+    }
+    console.log("Thanks for playing!")
+}
