@@ -42,3 +42,5 @@ function playGame() {
     }
     console.log("Thanks for playing!")
 }
+
+playGame()
