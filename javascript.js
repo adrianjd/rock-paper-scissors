@@ -19,6 +19,18 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if (text === computerSelection) {
-        return `It's a tie! You and Computer both chose ${text}`
+        return `It's a tie! You and Computer both chose ${text}!`
+    } else if (text === "rock" && computerSelection === "paper") {
+        return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${text}!`
+    } else if (text === "rock" && computerSelection === "scissors") {
+        return `You Win! Computer chose ${computerSelection}, and ${text} beats ${computerSelection}!`
+    } else if (text === "paper" && computerSelection === "scissors") {
+        return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${text}!`
+    } else if (text === "paper" && computerSelection === "rock") {
+        return `You Win! Computer chose ${computerSelection}, and ${text} beats ${computerSelection}!`
+    } else if (text === "scissors" && computerSelection === "rock") {
+        return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${text}!`
+    } else if (text === "scissors" && computerSelection === "paper") {
+        return `You Win! Computer chose ${computerSelection}, and ${text} beats ${computerSelection}!`
     }
 }
