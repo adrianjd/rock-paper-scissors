@@ -1,4 +1,12 @@
 .buttons {
     display: flex;
-    gap: 40px;
+    gap: 16px;
+}
+
+button {
+    padding: 24px 32px;
+    font-size: 18px;
+    background-color: #91abf1;
+    border: #91abf1;
+    border-radius: 12px;
 }
