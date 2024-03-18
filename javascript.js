@@ -17,7 +17,9 @@ const buttons = document.querySelectorAll("button");
 function playRound(playerSelection, computerSelection) {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
-
+            if (button.class === computerSelection) {
+                return `It's a tie! You and Computer both chose ${button.class}!`
+            }
         })
     });
 
