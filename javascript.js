@@ -14,6 +14,13 @@ function getComputerChoice() {
 
 const buttons = document.querySelectorAll("button");
 
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const choice = button.class;
+        return choice;
+    });
+});
+
 function playRound(playerSelection, computerSelection) {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
@@ -23,8 +30,8 @@ function playRound(playerSelection, computerSelection) {
         })
     });
 
-    if (text === computerSelection) {
-        return `It's a tie! You and Computer both chose ${text}!`
+    if (playerSelection === computerSelection) {
+        return `It's a tie! You and Computer both chose ${playerSelection}!`
     } else if (text === "rock" && computerSelection === "paper") {
         return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${text}!`
     } else if (text === "rock" && computerSelection === "scissors") {
