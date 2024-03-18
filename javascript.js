@@ -12,8 +12,14 @@ function getComputerChoice() {
     }
 }
 
+const buttons = document.querySelectorAll("button");
+
 function playRound(playerSelection, computerSelection) {
-    let text = playerSelection.toLowerCase()
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            
+        })
+    })
     if (text != "rock" && text != "paper" && text != "scissors") {
         return "Invalid input! Please enter 'rock', 'paper', or 'scissors'."
     }
@@ -36,7 +42,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function playGame() {
-    let answer = prompt("Let's play! Enter 'rock', 'paper', or 'scissors'!")
+    // let answer = prompt("Let's play! Enter 'rock', 'paper', or 'scissors'!")
     // for (let i = 0; i < 5; i++) {
     //     console.log(`Round ${i+1}:`, playRound(answer, getComputerChoice()));
     // }
