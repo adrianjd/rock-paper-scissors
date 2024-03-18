@@ -15,12 +15,12 @@ function getComputerChoice() {
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
-    const playerChoice = button.classList.value;
+    const playerChoice = button.className;
     
     button.addEventListener("click", () => {
         const computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
-    })
+    });
 });
 
 function playRound(playerSelection, computerSelection) {
