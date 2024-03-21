@@ -12,17 +12,6 @@ function getComputerChoice() {
     }
 }
 
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(button => {
-    const playerChoice = button.className;
-    
-    button.addEventListener("click", () => {
-        const computerChoice = getComputerChoice();
-        playRound(playerChoice, computerChoice);
-    });
-});
-
 function playRound(playerSelection, computerSelection) {
     
 
@@ -42,6 +31,20 @@ function playRound(playerSelection, computerSelection) {
         return `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`
     }
 }
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+    const playerChoice = button.className;
+    
+    button.addEventListener("click", () => {
+        playRound(playerChoice, getComputerChoice());
+    });
+
+    button.addEventListener("click", () => {
+        const result = document.createElement();
+    })
+});
 
 function playGame() {
     
