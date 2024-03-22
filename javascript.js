@@ -32,55 +32,93 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const buttons = document.querySelectorAll("button");
+let count = 1;
+let playerHand = "";
 
-buttons.forEach(button => {
-    const playerChoice = button.className;
-    let count = 0;
-    let compTally = 0;
-    let playerTally = 0;
-    let tie = 0;
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+const result = document.createElement("p");
+const resultsDiv = document.querySelector(".results");
+const tally = document.createElement("p");
+
+function rockHand() {
+    playerHand = rock.className;
+    if (count < 5) {
+        let round = playRound(playerHand, getComputerChoice());
+        resultsDiv.appendChild(result);
+        result.textContent = `Round ${count}: ` + round;
+        count++;
+    };
+};
+
+function paperHand() {
+    playerHand = paper.className;
+    if (count < 5) {
+        let round = playRound(playerHand, getComputerChoice());
+        resultsDiv.appendChild(result);
+        result.textContent = `Round ${count}: ` + round;
+        count++;
+    } else {};
+};
+
+function scissorsHand() {
+    playerHand = scissors.className;
+    let round = playRound(playerHand, getComputerChoice());
+    resultsDiv.appendChild(result);
+    result.textContent = `Round ${count}: ` + round;
+    count++;
+};
+
+
+// buttons.forEach(button => {
+//     const playerChoice = button.className;
+//     let count = 0;
+//     let compTally = 0;
+//     let playerTally = 0;
+//     let tie = 0;
     
-    button.addEventListener("click", () => {
-        return count++;
-    })
+//     button.addEventListener("click", () => {
+//         return count++;
+//     })
     
-    button.addEventListener("click", () => {
-        if (count < 5) {
-            const round = playRound(playerChoice, getComputerChoice());
+//     button.addEventListener("click", () => {
+//         if (count < 5) {
+//             const round = playRound(playerChoice, getComputerChoice());
 
-            const result = document.createElement("p");
-            const resultsDiv = document.querySelector(".results")
-            const tally = document.createElement("p");
+            // const result = document.createElement("p");
+            // const resultsDiv = document.querySelector(".results")
+            // const tally = document.createElement("p");
 
-            resultsDiv.appendChild(result);
-            result.textContent = `Round ${count}: ` + round;
+            // resultsDiv.appendChild(result);
+            // result.textContent = `Round ${count}: ` + round;
 
-            const win = "Win";
-            const lose = "Lose";
-            const draw = "tie"
+//             const win = "Win";
+//             const lose = "Lose";
+//             const draw = "tie"
 
-            if (result.textContent.indexOf(lose) !== -1) {
-                compTally++;
-                tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
-                resultsDiv.appendChild(tally);
-                return compTally;
-            } else if (result.textContent.indexOf(win) !== -1) {
-                playerTally++;
-                tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
-                resultsDiv.appendChild(tally);
-                return playerTally;
-            } else {
-                tie++;
-                tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
-                resultsDiv.appendChild(tally);
-                return tie++;
-            };
+//             if (result.textContent.indexOf(lose) !== -1) {
+//                 compTally++;
+//                 tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
+//                 resultsDiv.appendChild(tally);
+//                 return compTally;
+//             } else if (result.textContent.indexOf(win) !== -1) {
+//                 playerTally++;
+//                 tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
+//                 resultsDiv.appendChild(tally);
+//                 return playerTally;
+//             } else {
+//                 tie++;
+//                 tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
+//                 resultsDiv.appendChild(tally);
+//                 return tie++;
+//             };
             
             
-        }
-    });
-});
+//         }
+//     });
+// });
 
 function playGame() {
     
@@ -91,3 +129,6 @@ function playGame() {
 }
 
 // playGame()
+rock.addEventListener("click", rockHand);
+paper.addEventListener("click", paperHand);
+scissors.addEventListener("click", scissorsHand);
