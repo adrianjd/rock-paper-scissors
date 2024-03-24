@@ -32,7 +32,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let count = 1;
 let playerHand = "";
 
 const rock = document.querySelector(".rock");
@@ -45,30 +44,26 @@ const tally = document.createElement("p");
 
 function rockHand() {
     playerHand = rock.className;
-    if (count < 5) {
-        let round = playRound(playerHand, getComputerChoice());
-        resultsDiv.appendChild(result);
-        result.textContent = `Round ${count}: ` + round;
-        count++;
-    };
+
+    let round = playRound(playerHand, getComputerChoice());
+    resultsDiv.appendChild(result);
+    result.textContent = round;
 };
 
 function paperHand() {
     playerHand = paper.className;
-    if (count < 5) {
-        let round = playRound(playerHand, getComputerChoice());
-        resultsDiv.appendChild(result);
-        result.textContent = `Round ${count}: ` + round;
-        count++;
-    } else {};
+
+    let round = playRound(playerHand, getComputerChoice());
+    resultsDiv.appendChild(result);
+    result.textContent = round;
 };
 
 function scissorsHand() {
     playerHand = scissors.className;
+    
     let round = playRound(playerHand, getComputerChoice());
     resultsDiv.appendChild(result);
-    result.textContent = `Round ${count}: ` + round;
-    count++;
+    result.textContent = round;
 };
 
 
