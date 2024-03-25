@@ -16,7 +16,7 @@ function playRound(playerSelection, computerSelection) {
     
 
     if (playerSelection === computerSelection) {
-        return `It's a tie! You and Computer both chose ${playerSelection}!`
+        return `It's a Tie! You and Computer both chose ${playerSelection}!`
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -32,8 +32,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerHand = "";
-
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
@@ -41,6 +39,46 @@ const scissors = document.querySelector(".scissors");
 const result = document.createElement("p");
 const resultsDiv = document.querySelector(".results");
 const tally = document.createElement("p");
+const winner = document.createElement("p");
+
+let compTally = 0;
+let playerTally = 0;
+let tieTally = 0;
+const win = "Win";
+const lose = "Lose";
+const draw = "Tie";
+let playerHand = "";
+
+function scoreTally() {
+    if (result.textContent.indexOf(lose) !== -1) {
+        compTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+        return compTally;
+    } else if (result.textContent.indexOf(win) !== -1) {
+        playerTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+        return playerTally;
+    } else {
+        tieTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+        return tieTally++;
+    };
+};
+
+function announceWinner() {
+    if (playerTally === 5) {
+        winner.textContent = "Player Wins! Congratulations!"
+        resultsDiv.appendChild(winner);
+        return;
+    } else if (compTally === 5) {
+        winner.textContent = "The Computer Wins! Better luck next time!"
+        resultsDiv.appendChild(winner);
+        return;
+    };
+};
 
 function rockHand() {
     playerHand = rock.className;
@@ -48,6 +86,9 @@ function rockHand() {
     let round = playRound(playerHand, getComputerChoice());
     resultsDiv.appendChild(result);
     result.textContent = round;
+
+    scoreTally();
+    announceWinner();
 };
 
 function paperHand() {
@@ -56,6 +97,9 @@ function paperHand() {
     let round = playRound(playerHand, getComputerChoice());
     resultsDiv.appendChild(result);
     result.textContent = round;
+
+    scoreTally();
+    announceWinner();
 };
 
 function scissorsHand() {
@@ -64,15 +108,16 @@ function scissorsHand() {
     let round = playRound(playerHand, getComputerChoice());
     resultsDiv.appendChild(result);
     result.textContent = round;
+
+    scoreTally();
+    announceWinner();
 };
 
 
 // buttons.forEach(button => {
 //     const playerChoice = button.className;
 //     let count = 0;
-//     let compTally = 0;
-//     let playerTally = 0;
-//     let tie = 0;
+    
     
 //     button.addEventListener("click", () => {
 //         return count++;
@@ -89,26 +134,9 @@ function scissorsHand() {
             // resultsDiv.appendChild(result);
             // result.textContent = `Round ${count}: ` + round;
 
-//             const win = "Win";
-//             const lose = "Lose";
-//             const draw = "tie"
+            
 
-//             if (result.textContent.indexOf(lose) !== -1) {
-//                 compTally++;
-//                 tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
-//                 resultsDiv.appendChild(tally);
-//                 return compTally;
-//             } else if (result.textContent.indexOf(win) !== -1) {
-//                 playerTally++;
-//                 tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
-//                 resultsDiv.appendChild(tally);
-//                 return playerTally;
-//             } else {
-//                 tie++;
-//                 tally.textContent = `Player: ${playerTally} Tie: ${tie} Computer: ${compTally}`;
-//                 resultsDiv.appendChild(tally);
-//                 return tie++;
-//             };
+
             
             
 //         }
