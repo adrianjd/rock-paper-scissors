@@ -87,41 +87,22 @@ function playRound(playerSelection, computerSelection) {
     };
 }
 
-// function announceWinner() {
-//     if (playerTally === 5) {
-//         winner.textContent = "Player Wins! Congratulations!"
-//         resultsDiv.appendChild(winner);
-//         compTally = 0;
-//         playerTally = 0;
-//         tieTally = 0;
-//     } else if (compTally === 5) {
-//         winner.textContent = "The Computer Wins! Better luck next time!"
-//         resultsDiv.appendChild(winner);
-//         compTally = 0;
-//         playerTally = 0;
-//         tieTally = 0;
-//     };
-// };
-
 function rockHand() {
     playerHand = rock.className;
 
     playRound(playerHand, getComputerChoice());
-    // announceWinner();
 };
 
 function paperHand() {
     playerHand = paper.className;
 
     playRound(playerHand, getComputerChoice());
-    // announceWinner();
 };
 
 function scissorsHand() {
     playerHand = scissors.className;
     
     playRound(playerHand, getComputerChoice());
-    // announceWinner();
 };
 
 rock.addEventListener("click", rockHand);
