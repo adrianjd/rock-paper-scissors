@@ -27,7 +27,6 @@ let tieTally = 0;
 let playerHand = "";
 
 function playRound(playerSelection, computerSelection) {
-    
 
     if (playerSelection === computerSelection) {
         result.textContent = `It's a Tie! You and Computer both chose ${playerSelection}!`;
@@ -72,39 +71,57 @@ function playRound(playerSelection, computerSelection) {
         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
         resultsDiv.appendChild(tally);
     }
-}
 
-function announceWinner() {
     if (playerTally === 5) {
         winner.textContent = "Player Wins! Congratulations!"
         resultsDiv.appendChild(winner);
-        return;
+        compTally = 0;
+        playerTally = 0;
+        tieTally = 0;
     } else if (compTally === 5) {
         winner.textContent = "The Computer Wins! Better luck next time!"
         resultsDiv.appendChild(winner);
-        return;
+        compTally = 0;
+        playerTally = 0;
+        tieTally = 0;
     };
-};
+}
+
+// function announceWinner() {
+//     if (playerTally === 5) {
+//         winner.textContent = "Player Wins! Congratulations!"
+//         resultsDiv.appendChild(winner);
+//         compTally = 0;
+//         playerTally = 0;
+//         tieTally = 0;
+//     } else if (compTally === 5) {
+//         winner.textContent = "The Computer Wins! Better luck next time!"
+//         resultsDiv.appendChild(winner);
+//         compTally = 0;
+//         playerTally = 0;
+//         tieTally = 0;
+//     };
+// };
 
 function rockHand() {
     playerHand = rock.className;
 
     playRound(playerHand, getComputerChoice());
-    announceWinner();
+    // announceWinner();
 };
 
 function paperHand() {
     playerHand = paper.className;
 
     playRound(playerHand, getComputerChoice());
-    announceWinner();
+    // announceWinner();
 };
 
 function scissorsHand() {
     playerHand = scissors.className;
     
     playRound(playerHand, getComputerChoice());
-    announceWinner();
+    // announceWinner();
 };
 
 rock.addEventListener("click", rockHand);
