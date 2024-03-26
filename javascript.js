@@ -110,15 +110,6 @@ function scissorsHand() {
     announceWinner();
 };
 
-function playGame() {
-    
-    // for (let i = 0; i < 5; i++) {
-    console.log("Round 1:", playRound(playerChoice(), getComputerChoice()));
-    // }
-    console.log("Thanks for playing!")
-}
-
-
 rock.addEventListener("click", rockHand);
 paper.addEventListener("click", paperHand);
 scissors.addEventListener("click", scissorsHand);
