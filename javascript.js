@@ -28,6 +28,12 @@ let playerHand = "";
 
 function playRound(playerSelection, computerSelection) {
 
+    if ((compTally === 0) && (playerTally === 0) && (tieTally === 0)) {
+        if (winner.textContent) {
+            resultsDiv.removeChild(winner);
+        }
+    };
+
     if (playerSelection === computerSelection) {
         result.textContent = `It's a Tie! You and Computer both chose ${playerSelection}!`;
         resultsDiv.appendChild(result);
@@ -89,19 +95,16 @@ function playRound(playerSelection, computerSelection) {
 
 function rockHand() {
     playerHand = rock.className;
-
     playRound(playerHand, getComputerChoice());
 };
 
 function paperHand() {
     playerHand = paper.className;
-
     playRound(playerHand, getComputerChoice());
 };
 
 function scissorsHand() {
     playerHand = scissors.className;
-    
     playRound(playerHand, getComputerChoice());
 };
 
