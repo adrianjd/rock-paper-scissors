@@ -12,26 +12,6 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    
-
-    if (playerSelection === computerSelection) {
-        return `It's a Tie! You and Computer both chose ${playerSelection}!`
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`
-    }
-}
-
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
@@ -49,24 +29,74 @@ const lose = "Lose";
 const draw = "Tie";
 let playerHand = "";
 
-function scoreTally() {
-    if (result.textContent.indexOf(lose) !== -1) {
-        compTally++;
-        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
-        resultsDiv.appendChild(tally);
-        return compTally;
-    } else if (result.textContent.indexOf(win) !== -1) {
-        playerTally++;
-        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
-        resultsDiv.appendChild(tally);
-        return playerTally;
-    } else {
+function playRound(playerSelection, computerSelection) {
+    
+
+    if (playerSelection === computerSelection) {
+        result.textContent = `It's a Tie! You and Computer both chose ${playerSelection}!`;
+        resultsDiv.appendChild(result);
         tieTally++;
         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
         resultsDiv.appendChild(tally);
-        return tieTally++;
-    };
-};
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        result.textContent = `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`;
+        resultsDiv.appendChild(result);
+        compTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        result.textContent = `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`;
+        resultsDiv.appendChild(result);
+        playerTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        result.textContent = `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`;
+        resultsDiv.appendChild(result);
+        compTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        result.textContent = `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`;
+        resultsDiv.appendChild(result);
+        playerTally++
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        result.textContent = `You Lose! Computer chose ${computerSelection}, and ${computerSelection} beats ${playerSelection}!`;
+        resultsDiv.appendChild(result);
+        compTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        result.textContent = `You Win! Computer chose ${computerSelection}, and ${playerSelection} beats ${computerSelection}!`;
+        resultsDiv.appendChild(result);
+        playerTally++;
+        tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+        resultsDiv.appendChild(tally);
+    }
+}
+
+
+
+// function scoreTally() {
+//     if (result.textContent.indexOf(lose) !== -1) {
+//         compTally++;
+//         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+//         resultsDiv.appendChild(tally);
+//         return compTally;
+//     } else if (result.textContent.indexOf(win) !== -1) {
+//         playerTally++;
+//         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+//         resultsDiv.appendChild(tally);
+//         return playerTally;
+//     } else {
+//         tieTally++;
+//         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
+//         resultsDiv.appendChild(tally);
+//         return tieTally++;
+//     };
+// };
 
 function announceWinner() {
     if (playerTally === 5) {
@@ -83,33 +113,33 @@ function announceWinner() {
 function rockHand() {
     playerHand = rock.className;
 
-    let round = playRound(playerHand, getComputerChoice());
-    resultsDiv.appendChild(result);
-    result.textContent = round;
+    playRound(playerHand, getComputerChoice());
+    // resultsDiv.appendChild(result);
+    // result.textContent = round;
 
-    scoreTally();
+    // scoreTally();
     announceWinner();
 };
 
 function paperHand() {
     playerHand = paper.className;
 
-    let round = playRound(playerHand, getComputerChoice());
-    resultsDiv.appendChild(result);
-    result.textContent = round;
+    playRound(playerHand, getComputerChoice());
+    // resultsDiv.appendChild(result);
+    // result.textContent = round;
 
-    scoreTally();
+    // scoreTally();
     announceWinner();
 };
 
 function scissorsHand() {
     playerHand = scissors.className;
     
-    let round = playRound(playerHand, getComputerChoice());
-    resultsDiv.appendChild(result);
-    result.textContent = round;
+    playRound(playerHand, getComputerChoice());
+    // resultsDiv.appendChild(result);
+    // result.textContent = round;
 
-    scoreTally();
+    // scoreTally();
     announceWinner();
 };
 
