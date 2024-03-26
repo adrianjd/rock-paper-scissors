@@ -77,27 +77,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
-
-// function scoreTally() {
-//     if (result.textContent.indexOf(lose) !== -1) {
-//         compTally++;
-//         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
-//         resultsDiv.appendChild(tally);
-//         return compTally;
-//     } else if (result.textContent.indexOf(win) !== -1) {
-//         playerTally++;
-//         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
-//         resultsDiv.appendChild(tally);
-//         return playerTally;
-//     } else {
-//         tieTally++;
-//         tally.textContent = `Player: ${playerTally} Tie: ${tieTally} Computer: ${compTally}`;
-//         resultsDiv.appendChild(tally);
-//         return tieTally++;
-//     };
-// };
-
 function announceWinner() {
     if (playerTally === 5) {
         winner.textContent = "Player Wins! Congratulations!"
@@ -114,10 +93,6 @@ function rockHand() {
     playerHand = rock.className;
 
     playRound(playerHand, getComputerChoice());
-    // resultsDiv.appendChild(result);
-    // result.textContent = round;
-
-    // scoreTally();
     announceWinner();
 };
 
@@ -125,10 +100,6 @@ function paperHand() {
     playerHand = paper.className;
 
     playRound(playerHand, getComputerChoice());
-    // resultsDiv.appendChild(result);
-    // result.textContent = round;
-
-    // scoreTally();
     announceWinner();
 };
 
@@ -136,42 +107,8 @@ function scissorsHand() {
     playerHand = scissors.className;
     
     playRound(playerHand, getComputerChoice());
-    // resultsDiv.appendChild(result);
-    // result.textContent = round;
-
-    // scoreTally();
     announceWinner();
 };
-
-
-// buttons.forEach(button => {
-//     const playerChoice = button.className;
-//     let count = 0;
-    
-    
-//     button.addEventListener("click", () => {
-//         return count++;
-//     })
-    
-//     button.addEventListener("click", () => {
-//         if (count < 5) {
-//             const round = playRound(playerChoice, getComputerChoice());
-
-            // const result = document.createElement("p");
-            // const resultsDiv = document.querySelector(".results")
-            // const tally = document.createElement("p");
-
-            // resultsDiv.appendChild(result);
-            // result.textContent = `Round ${count}: ` + round;
-
-            
-
-
-            
-            
-//         }
-//     });
-// });
 
 function playGame() {
     
@@ -181,7 +118,7 @@ function playGame() {
     console.log("Thanks for playing!")
 }
 
-// playGame()
+
 rock.addEventListener("click", rockHand);
 paper.addEventListener("click", paperHand);
 scissors.addEventListener("click", scissorsHand);
