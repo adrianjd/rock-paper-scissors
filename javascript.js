@@ -24,9 +24,6 @@ const winner = document.createElement("p");
 let compTally = 0;
 let playerTally = 0;
 let tieTally = 0;
-const win = "Win";
-const lose = "Lose";
-const draw = "Tie";
 let playerHand = "";
 
 function playRound(playerSelection, computerSelection) {
