@@ -79,13 +79,23 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if (playerTally === 5) {
-        winner.textContent = "Player Wins! Congratulations!"
+        // Setting this css style allows for line break in winner.textContent
+        winner.setAttribute('style', 'white-space: pre;');
+        
+        // Adding '\r\n' allows for line break in winner.textContent
+        winner.textContent = "Player Wins! Congratulations!\r\n";
+        winner.textContent += 'Click any button to start over!'
         resultsDiv.appendChild(winner);
         compTally = 0;
         playerTally = 0;
         tieTally = 0;
     } else if (compTally === 5) {
-        winner.textContent = "The Computer Wins! Better luck next time!"
+        // Setting this css style allows for line break in winner.textContent
+        winner.setAttribute('style', 'white-space: pre;');
+
+        // Adding '\r\n' allows for line break in winner.textContent
+        winner.textContent = "The Computer Wins! Better luck next time!\r\n";
+        winner.textContent += 'Click any button to start over!'
         resultsDiv.appendChild(winner);
         compTally = 0;
         playerTally = 0;
