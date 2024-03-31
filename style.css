@@ -1,12 +1,22 @@
+body {
+    display: flex;
+    background-color: #f6f6f2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .buttons {
     display: flex;
     gap: 16px;
+    margin: 16px;
 }
 
 button {
     padding: 24px 32px;
     font-size: 18px;
-    background-color: #91abf1;
-    border: #91abf1;
+    background-color: #badfe7;
+    border: 2px solid #000000;
     border-radius: 12px;
 }
